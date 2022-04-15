@@ -3,10 +3,74 @@ from glicko2 import *
 
 def main():
 
+    print("Welcome to the Glicko2 Calculator. Ver 1.0")
+    displayOptions()
     playerList = createPlayers()
     tournamentData = getTournamentData()
     glicko2Data = prepareData(playerList, tournamentData)
     calculate(playerList, glicko2Data)
+
+
+def displayOptions():
+
+    usrInp = input("What would you like to do? (1) Show ordered list, (2) Run the script\n")
+
+    if (usrInp == "1"):
+
+        sortPlayers()
+        exit()
+
+    elif (usrInp == "2"):
+
+        confirm = input("Is the tournament.txt file present and updated? y/n\n")
+
+        if (confirm == "y"):
+
+            pass
+
+        elif (confirm == "n"):
+
+            print("Prepare the tournament.txt file and run the script again.")
+            exit()
+
+        else:
+
+            print("Command not recognized.")
+            displayOptions()
+
+    else:
+        displayOptions()
+
+
+def sortPlayers():
+
+    playerList = []
+    count = 1
+
+    #Open player text file that contains name, rating, rd, vol
+    ratingFile = open("players.txt", "r")
+
+    #Read lines from file and store into a list
+    lines = ratingFile.readlines()
+
+    for line in lines:
+        #Remove \n character
+        line = line.strip()
+        #Split based on semicolon
+        strippedLine = line.split(';')
+        #Create player object based on the split
+        player = Player(strippedLine[0],float(strippedLine[1]),float(strippedLine[2]),float(strippedLine[3]))
+        #Add new player to list 
+        playerList.append(player)
+
+    #Close file
+    ratingFile.close()
+
+    #Sort players by rating
+    playerList.sort(key=lambda x: x.rating, reverse=True)
+    for player in playerList:
+        print("{0})  {1}: {2}".format(count,player.username,player.rating))
+        count += 1
 
 
 def createPlayers():
