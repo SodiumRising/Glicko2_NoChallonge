@@ -110,8 +110,6 @@ def prepareData(playerList, tournamentData):
 def calculate(playerList, glicko2Data):
 
     foundList = []
-
-    #open('players.txt', 'w').close()
     ratingsFile = open('players.txt', 'w')
 
     #iterate by player through playerList
