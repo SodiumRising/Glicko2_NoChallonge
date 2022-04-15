@@ -1,0 +1,5 @@
+sodiumrising;1500;350;0.06
+merk;1500;350;0.06
+fishhookfpc;1500;350;0.06
+tyross;1500;350;0.06
+carty;1500;350;0.06

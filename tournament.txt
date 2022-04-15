@@ -1,0 +1,4 @@
+sodiumrising;merk,fishhookfpc,tyross;1,1,1
+merk;sodiumrising,fishhookfpc,tyross;0,1,0
+fishhookfpc;sodiumrising,merk,tyross;0,0,0
+tyross;merk,fishhookfpc,sodiumrising;1,1,0
